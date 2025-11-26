@@ -17,6 +17,7 @@ const int MAX_CHOICE = 5;
 void displayMenu();
 void readData(IntBinaryTree& tree, string path);
 void addNode(IntBinaryTree& tree);
+void deleteNode(IntBinaryTree& tree);
 
 // Main function
 int main()
@@ -65,7 +66,14 @@ int main()
                 break;
             }
 
-            // 
+            // Delete a Node
+            case 2:
+            {
+                // Call the deleteNode() function
+                deleteNode(tree);
+
+                break;
+            }
         }
     }
 
@@ -135,7 +143,7 @@ void addNode(IntBinaryTree& tree)
     cin.ignore(1000, 10);
 
     // Check the length of the Node
-    if (str.length() == 0)
+    if (str.empty())
     {
         // Display an error message
         cout << "Error! The string must not be empty!" << endl;
@@ -156,5 +164,46 @@ void addNode(IntBinaryTree& tree)
 }
 
 /*
-
+    deleteNode()
+    Delete a Node form the Binary Tree
+    Arguments:
+        - tree: the tree to delete from
+    Return: none
 */
+void deleteNode(IntBinaryTree& tree)
+{
+    // Create a string variable to store the Node
+    string str;
+
+    // Prompt the user to enter a string to delete
+    cout << "Please enter the Node you want to delete: ";
+    cin >> str;
+    cin.ignore(1000, 10);
+
+    // Check whether the input was empty
+    while (str.empty())
+    {
+        // Display an error message
+        cout << "Error! The string must not be empty!" << endl;
+
+        // Prompt the user to enter a new string
+        cout << "Please enter a new string: ";
+        cin >> str;
+        cin.ignore(1000, 10);
+    }
+
+    // Search for the Node in the tree
+    if (tree.searchNode(str))
+    {
+        // If the Node is found, we delete it from the tree
+        tree.remove(str);
+
+        // Display a message
+        cout << str << " is deleted from the Binary Tree!" << endl;
+    }
+    else
+    {
+        // Otherwise, we display a message
+        cout << str << " does not exist in the tree!" << endl;
+    }
+}
