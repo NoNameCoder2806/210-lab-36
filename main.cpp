@@ -10,10 +10,12 @@ using namespace std;
 
 // Constants
 const string DATA_FILE = "codes.txt";
+const int MIN_CHOICE = 1;
+const int MAX_CHOICE = 5;
 
 // Function prototypes
 void displayMenu();
-void readData(IntBinaryTree& tree);
+void readData(IntBinaryTree& tree, string path);
 void addNode(IntBinaryTree& tree);
 
 // Main function
@@ -26,8 +28,46 @@ int main()
     string path = DATA_FILE;
     readData(tree, path);
 
-    // Display the tree
-    tree.displayInOrder();
+    // Create an integer to store user's choice
+    int choice;
+
+    while (true)
+    {
+        // Display the menu
+        displayMenu();
+
+        // Prompt the user to enter the choice
+        cout << "Please enter your choice: ";
+        cin >> choice;
+        cin.ignore(1000, 10);
+
+        // Validate the input
+        while (choice < MIN_CHOICE || choice > MAX_CHOICE)
+        {
+            // Display an error message
+            cout << "Error! Invalid choice!" << endl;
+            
+            // Prompt the user to enter a new choice
+            cout << "Enter a new choice (1-5): ";
+            cin >> choice;
+            cin.ignore(1000, 10);
+        }
+
+        // Switch cases
+        switch (choice)
+        {
+            // Add a Node
+            case 1:
+            {
+                // Call the addNode() function
+                addNode(tree);
+
+                break;
+            }
+
+            // 
+        }
+    }
 
     return 0;
 }
@@ -105,4 +145,16 @@ void addNode(IntBinaryTree& tree)
         cin >> str;
         cin.ignore(1000, 10);
     }
+    else
+    {
+        // Otherwise, insert the node to the tree
+        tree.insertNode(str);
+
+        // Display a message
+        cout << str << " added to the Binary Tree!" << endl;
+    }
 }
+
+/*
+
+*/
