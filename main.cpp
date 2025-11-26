@@ -189,7 +189,7 @@ void addNode(IntBinaryTree& tree)
         tree.insertNode(str);
 
         // Display a message
-        cout << str << " added to the Binary Tree!" << endl;
+        cout << str << " added to the tree!" << endl;
     }
 }
 
@@ -229,7 +229,7 @@ void deleteNode(IntBinaryTree& tree)
         tree.remove(str);
 
         // Display a message
-        cout << str << " is deleted from the Binary Tree!" << endl;
+        cout << str << " is deleted from the tree!" << endl;
     }
     else
     {
