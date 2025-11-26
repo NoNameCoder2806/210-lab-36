@@ -74,6 +74,16 @@ int main()
 
                 break;
             }
+
+            // Exit
+            case 5:
+            {
+                // Display a message
+                cout << "Thank you for using the program! Exiting..." << endl;
+
+                // Exit the program
+                return 0;
+            }
         }
     }
 
@@ -207,3 +217,8 @@ void deleteNode(IntBinaryTree& tree)
         cout << str << " does not exist in the tree!" << endl;
     }
 }
+
+/*
+    searchNode()
+    Search for a Node in the tree
+*/
