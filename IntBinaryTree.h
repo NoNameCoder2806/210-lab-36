@@ -1,6 +1,11 @@
 // COMSC-210 | Lab 36 | Dat Hoang Vien
 // IDE used: Visual Studio Code
 
+// Libraries
+#include <iostream>
+#include <string>
+using namespace std;
+
 // Specification file for the IntBinaryTree class
 #ifndef INTBINARYTREE_H
 #define INTBINARYTREE_H
