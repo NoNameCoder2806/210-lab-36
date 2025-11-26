@@ -19,6 +19,7 @@ void readData(IntBinaryTree& tree, string path);
 void addNode(IntBinaryTree& tree);
 void deleteNode(IntBinaryTree& tree);
 void searchNode(IntBinaryTree& tree);
+void modifyRecords(IntBinaryTree& tree);
 
 // Main function
 int main()
@@ -256,4 +257,25 @@ void searchNode(IntBinaryTree& tree)
         // Otherwise, we also display a message
         cout << str << " does not exist in the tree" << endl;
     }
+}
+
+/*
+    modifyRecords()
+    Modify the recprd of a Node
+    Arguments:
+        - tree: the tree whose record we want to modify
+    Return: none
+*/
+void modifyRecords(IntBinaryTree& tree)
+{
+    // Create a string variable to store the Node
+    string str;
+
+    // Prompt the user to enter a Node to modify
+    cout << "Please enter the Node you want to modify: ";
+    cin >> str;
+    cin.ignore(1000, 10);
+
+    // Check whether the Node exists in the tree
+    if (tree.searchNode(str))
 }
