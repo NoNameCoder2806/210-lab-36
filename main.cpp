@@ -86,6 +86,15 @@ int main()
                 break;
             }
 
+            // Modify records
+            case 4:
+            {
+                // Call the modifyRecords() function
+                modifyRecords(tree);
+
+                break;
+            }
+
             // Exit
             case 5:
             {
@@ -115,7 +124,7 @@ void displayMenu()
 
     // Display all the operations
     cout << "1. Add Node" << endl;
-    cout << "2. Delete Note" << endl;
+    cout << "2. Delete Node" << endl;
     cout << "3. Search Node" << endl;
     cout << "4. Modify Records" << endl;
     cout << "5. Exit" << endl;
@@ -281,9 +290,6 @@ void modifyRecords(IntBinaryTree& tree)
     {
         // If it does NOT, we display a message and exit the function
         cout << str << " does not exist in the tree!" << endl;
-
-        // Exit the function
-        return;
     }
     else
     {
@@ -292,7 +298,7 @@ void modifyRecords(IntBinaryTree& tree)
 
         // Then, we prompt the user to enter a new string as a replacement
         string newStr;
-        cout << "Please enter a new string: " << endl;
+        cout << "Please enter a new string: ";
         cin >> newStr;
         cin.ignore(1000, 10);
 
@@ -308,6 +314,19 @@ void modifyRecords(IntBinaryTree& tree)
             cin.ignore(1000, 10);
         }
 
-        // 
+        // Since this is a Binary Search Tree and not just a Binary Tree,
+        // The Tree would automatically sort the elements.
+        // Therefore, if we modify the node, it is just the same as deleting the previous Node,
+        // And then insert a new one into it
+        // (because the Tree would sort itself again and the order would not be maintained anyway...)
+        
+        // Therefore, we delete the old Node
+        tree.remove(str);
+
+        // And insert the new Node
+        tree.insertNode(newStr);
+
+        // Display a message
+        cout << str << " has become " << newStr << "!" << endl;
     }
 }
