@@ -18,6 +18,7 @@ void displayMenu();
 void readData(IntBinaryTree& tree, string path);
 void addNode(IntBinaryTree& tree);
 void deleteNode(IntBinaryTree& tree);
+void searchNode(IntBinaryTree& tree);
 
 // Main function
 int main()
@@ -71,6 +72,15 @@ int main()
             {
                 // Call the deleteNode() function
                 deleteNode(tree);
+
+                break;
+            }
+            
+            // Search for a Node
+            case 3:
+            {
+                // Call the searchNode() function
+                searchNode(tree);
 
                 break;
             }
@@ -221,4 +231,29 @@ void deleteNode(IntBinaryTree& tree)
 /*
     searchNode()
     Search for a Node in the tree
+    Arguments:
+        - tree: the tree to search from
+    Return: none
 */
+void searchNode(IntBinaryTree& tree)
+{
+    // Create a variable to store the Node
+    string str;
+
+    // Prompt the user to enter a Node to search for
+    cout << "Please enter the Node you want to search: ";
+    cin >> str;
+    cin.ignore(1000, 10);
+
+    // Search for the Node in the tree
+    if (tree.searchNode(str))
+    {
+        // If the Node is found, display a message
+        cout << str << " is found!" << endl;
+    }
+    else
+    {
+        // Otherwise, we also display a message
+        cout << str << " does not exist in the tree" << endl;
+    }
+}
