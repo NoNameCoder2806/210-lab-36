@@ -277,5 +277,37 @@ void modifyRecords(IntBinaryTree& tree)
     cin.ignore(1000, 10);
 
     // Check whether the Node exists in the tree
-    if (tree.searchNode(str))
+    if (!tree.searchNode(str))
+    {
+        // If it does NOT, we display a message and exit the function
+        cout << str << " does not exist in the tree!" << endl;
+
+        // Exit the function
+        return;
+    }
+    else
+    {
+        // Otherwise, if the Node does exist, we display a message
+        cout << str << " is found!" << endl;
+
+        // Then, we prompt the user to enter a new string as a replacement
+        string newStr;
+        cout << "Please enter a new string: " << endl;
+        cin >> newStr;
+        cin.ignore(1000, 10);
+
+        // Validate the data
+        while (newStr.empty())
+        {
+            // If the string is empty, we display an error message
+            cout << "Error! The string cannot be empty!" << endl;
+
+            // Prompt the user to enter a new string
+            cout << "Please enter a new string: ";
+            cin >> newStr;
+            cin.ignore(1000, 10);
+        }
+
+        // 
+    }
 }
